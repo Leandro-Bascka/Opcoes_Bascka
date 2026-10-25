@@ -1,0 +1,56 @@
+name: Atualizar dados
+
+# A B3 publica o COTAHIST depois do fechamento do pregão.
+# 23:30 UTC = 20:30 em Brasília (seg a sex) e uma segunda tentativa às 07:30 de Brasília.
+on:
+  schedule:
+    - cron: "30 23 * * 1-5"
+    - cron: "30 10 * * 2-6"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atualizar-dados
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # Plano B: se o download automático da B3 falhar, coloque os ZIPs COTAHIST_A<ano>.ZIP
+      # numa pasta "cotahist" na raiz do repositório e eles serão usados.
+      COTAHIST_DIR: cotahist
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Preços, SMC e zonas
+        run: python build_data.py
+
+      - name: Opções, rankings e posições
+        run: python build_options.py
+
+      - name: Gravar os dados no repositório
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Sem mudanças nos dados."
+          else
+            git commit -m "Atualiza dados ($(date -u +%F))"
+            git pull --rebase
+            git push
+          fi
