@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Opções B3</title>
+  <meta name="description" content="Apoio à decisão em ações e opções da B3: zonas de confluência (SMC), PUTs para vender, CALLs de entrada e posições.">
+  <meta name="theme-color" content="#0f1318">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="opcoes.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-linha">
+      <h1>Opções B3</h1>
+      <div class="status" id="status" aria-live="polite">carregando…</div>
+    </div>
+    <nav class="abas" id="abas" role="tablist" aria-label="Seções"></nav>
+  </header>
+
+  <main>
+    <div id="avisos"></div>
+    <section class="alertas" id="alertas" aria-label="Alertas"></section>
+    <div id="conteudo" style="margin-top:12px"></div>
+  </main>
+
+  <footer>
+    Ferramenta de apoio à decisão com dados de fim de dia da B3. Não é recomendação de investimento: opções podem gerar perda total do prêmio (compra) ou obrigação de comprar a ação (venda de PUT).
+  </footer>
+
+  <script src="opcore.js"></script>
+  <script src="opcoes.js"></script>
+</body>
+</html>

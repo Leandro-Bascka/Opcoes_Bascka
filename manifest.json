@@ -1,0 +1,16 @@
+{
+  "name": "Opções B3 - apoio à decisão",
+  "short_name": "Opções B3",
+  "description": "Zonas de confluência (SMC), PUTs para vender, CALLs de entrada e posições na B3.",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f1318",
+  "theme_color": "#0f1318",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

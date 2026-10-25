@@ -1,0 +1,28 @@
+{
+  "universo": { "tamanho": 25, "janela_pregoes": 20 },
+  "smc": {
+    "swing_n": 3,
+    "fvg_min_pct": 0.3,
+    "ob_usar_pavios": true,
+    "tol_liquidez_pct": 0.15
+  },
+  "zonas": {
+    "tolerancia_pct": 1.2,
+    "nota_minima_alerta": 4.0,
+    "proximidade_pct": 1.5
+  },
+  "opcoes": {
+    "put": {
+      "dte_min": 15,
+      "dte_max": 50,
+      "prob_max": 0.15,
+      "spread_max_pct": 5.0,
+      "negocios_min_10p": 5,
+      "exigir_suporte": false
+    },
+    "call": { "dte_min": 30, "dte_max": 120, "spread_max_pct": 8.0 },
+    "call_longa": { "dte_min": 250, "spread_max_pct": 15.0 },
+    "selic_fallback_aa": 15.0,
+    "estilos": {}
+  }
+}

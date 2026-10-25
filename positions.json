@@ -1,0 +1,8 @@
+{
+  "_como_usar": "Edite este arquivo no GitHub para acompanhar suas posições. Cada item: ticker, serie (código da opção), lado (comprada ou vendida), qtd, preco_entrada (prêmio por opção), data_entrada, e opcionalmente alvo1 e alvo2 (preço da AÇÃO). Exemplo abaixo (apague ou troque pelos seus):",
+  "_exemplo": [
+    { "ticker": "PETR4", "serie": "PETRK300", "lado": "comprada", "qtd": 1000, "preco_entrada": 1.20, "data_entrada": "2026-10-20", "alvo1": 40.0, "alvo2": 43.5 },
+    { "ticker": "VALE3", "serie": "VALEW600", "lado": "vendida", "qtd": 500, "preco_entrada": 0.85, "data_entrada": "2026-10-19" }
+  ],
+  "posicoes": []
+}
